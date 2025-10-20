@@ -1,0 +1,73 @@
+{
+  "US": {
+    "standard": {
+      "base": 15,
+      "perKg": 5,
+      "days": "5-7",
+      "carrier": "USPS",
+      "service": "Priority Mail"
+    },
+    "express": {
+      "base": 35,
+      "perKg": 10,
+      "days": "2-3",
+      "carrier": "FedEx",
+      "service": "2Day"
+    },
+    "overnight": {
+      "base": 75,
+      "perKg": 20,
+      "days": "1",
+      "carrier": "FedEx",
+      "service": "Priority Overnight"
+    }
+  },
+  "CA": {
+    "standard": {
+      "base": 25,
+      "perKg": 8,
+      "days": "7-10",
+      "carrier": "USPS",
+      "service": "Priority Mail International"
+    },
+    "express": {
+      "base": 55,
+      "perKg": 15,
+      "days": "3-5",
+      "carrier": "FedEx",
+      "service": "International Priority"
+    }
+  },
+  "GB": {
+    "standard": {
+      "base": 45,
+      "perKg": 15,
+      "days": "10-14",
+      "carrier": "USPS",
+      "service": "Priority Mail International"
+    },
+    "express": {
+      "base": 95,
+      "perKg": 25,
+      "days": "5-7",
+      "carrier": "DHL",
+      "service": "Express Worldwide"
+    }
+  },
+  "international": {
+    "standard": {
+      "base": 45,
+      "perKg": 15,
+      "days": "10-14",
+      "carrier": "USPS",
+      "service": "Priority Mail International"
+    },
+    "express": {
+      "base": 95,
+      "perKg": 25,
+      "days": "5-7",
+      "carrier": "DHL",
+      "service": "Express Worldwide"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Rolex",
+    "slug": "rolex",
+    "description": "Swiss luxury watchmaker known for precision and prestige",
+    "country": "Switzerland",
+    "founded": 1905,
+    "productCount": 2
+  },
+  {
+    "name": "Omega",
+    "slug": "omega",
+    "description": "Prestigious Swiss brand, official timekeeper of the Olympics",
+    "country": "Switzerland",
+    "founded": 1848,
+    "productCount": 2
+  },
+  {
+    "name": "TAG Heuer",
+    "slug": "tag-heuer",
+    "description": "Swiss luxury watchmaker with motorsport heritage",
+    "country": "Switzerland",
+    "founded": 1860,
+    "productCount": 2
+  },
+  {
+    "name": "Seiko",
+    "slug": "seiko",
+    "description": "Japanese manufacturer known for innovation and value",
+    "country": "Japan",
+    "founded": 1881,
+    "productCount": 2
+  },
+  {
+    "name": "Cartier",
+    "slug": "cartier",
+    "description": "French luxury brand famous for elegant jewelry watches",
+    "country": "France",
+    "founded": 1847,
+    "productCount": 1
+  },
+  {
+    "name": "Patek Philippe",
+    "slug": "patek-philippe",
+    "description": "Swiss haute horlogerie manufacturer, one of the oldest watch makers",
+    "country": "Switzerland",
+    "founded": 1839,
+    "productCount": 1
+  },
+  {
+    "name": "Audemars Piguet",
+    "slug": "audemars-piguet",
+    "description": "Swiss manufacturer of luxury mechanical watches",
+    "country": "Switzerland",
+    "founded": 1875,
+    "productCount": 1
+  },
+  {
+    "name": "IWC",
+    "slug": "iwc",
+    "description": "Swiss luxury watch manufacturer known for pilot watches",
+    "country": "Switzerland",
+    "founded": 1868,
+    "productCount": 1
+  },
+  {
+    "name": "Breitling",
+    "slug": "breitling",
+    "description": "Swiss luxury watchmaker specializing in chronographs",
+    "country": "Switzerland",
+    "founded": 1884,
+    "productCount": 1
+  },
+  {
+    "name": "Grand Seiko",
+    "slug": "grand-seiko",
+    "description": "Japanese luxury watch brand known for exceptional craftsmanship",
+    "country": "Japan",
+    "founded": 1960,
+    "productCount": 1
+  },
+  {
+    "name": "Tudor",
+    "slug": "tudor",
+    "description": "Swiss watch brand offering luxury at accessible prices",
+    "country": "Switzerland",
+    "founded": 1926,
+    "productCount": 1
+  }
+]

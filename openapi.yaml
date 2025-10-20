@@ -1,0 +1,973 @@
+openapi: 3.0.3
+info:
+  title: Watch Merchant API
+  description: |
+    Demo watch merchant API with static product catalog for AP2 integration.
+
+    This API provides endpoints for browsing luxury watches, managing shopping carts,
+    calculating pricing, checking inventory, and placing orders.
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@watchmerchant.demo
+
+servers:
+  - url: http://localhost:8765/api/v1
+    description: Local development server
+  - url: https://api.watchmerchant.demo/v1
+    description: Production server
+
+tags:
+  - name: Products
+    description: Browse and search watch products
+  - name: Cart
+    description: Shopping cart management
+  - name: Pricing
+    description: Price quotes and calculations
+  - name: Inventory
+    description: Stock availability checks
+  - name: Shipping
+    description: Shipping rates and options
+  - name: Orders
+    description: Order creation and management
+  - name: Supporting
+    description: Brands, categories, and collections
+
+paths:
+  /products:
+    get:
+      tags: [Products]
+      summary: List products
+      description: Get a list of watches with optional filtering, sorting, and pagination
+      operationId: watches_listProducts
+      parameters:
+        - name: search
+          in: query
+          description: Search term for name, brand, or description
+          schema:
+            type: string
+        - name: brand
+          in: query
+          description: Filter by brand (can be multiple)
+          schema:
+            oneOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+        - name: category
+          in: query
+          description: Filter by category (can be multiple)
+          schema:
+            oneOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+        - name: priceMin
+          in: query
+          description: Minimum price filter
+          schema:
+            type: number
+        - name: priceMax
+          in: query
+          description: Maximum price filter
+          schema:
+            type: number
+        - name: minRating
+          in: query
+          description: Minimum rating filter
+          schema:
+            type: number
+            minimum: 0
+            maximum: 5
+        - name: tags
+          in: query
+          description: Filter by tags
+          schema:
+            oneOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+        - name: inStock
+          in: query
+          description: Only show in-stock items
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: Sort order
+          schema:
+            type: string
+            enum: [price_asc, price_desc, rating, newest]
+        - name: page
+          in: query
+          description: Page number (default 1)
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - name: limit
+          in: query
+          description: Items per page (default 20, max 100)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+                  meta:
+                    type: object
+                    properties:
+                      pagination:
+                        $ref: '#/components/schemas/Pagination'
+
+  /products/{id}:
+    get:
+      tags: [Products]
+      summary: Get product by ID
+      description: Retrieve detailed information about a specific watch
+      operationId: watches_getProduct
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Product ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '404':
+          description: Product not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /products/slug/{slug}:
+    get:
+      tags: [Products]
+      summary: Get product by slug
+      description: Retrieve product by URL-friendly slug
+      operationId: watches_getProductBySlug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          description: Product slug
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '404':
+          description: Product not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /cart:
+    post:
+      tags: [Cart]
+      summary: Create or update cart
+      description: Create a new shopping cart or update an existing one
+      operationId: watches_createCart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cartId:
+                  type: string
+                  description: Existing cart ID (optional)
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      sku:
+                        type: string
+                      quantity:
+                        type: integer
+                        minimum: 1
+              required: [items]
+      responses:
+        '201':
+          description: Cart created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /cart/{cartId}:
+    get:
+      tags: [Cart]
+      summary: Get cart
+      description: Retrieve shopping cart contents
+      operationId: watches_getCart
+      parameters:
+        - name: cartId
+          in: path
+          required: true
+          description: Cart ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '404':
+          description: Cart not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    delete:
+      tags: [Cart]
+      summary: Delete cart
+      description: Remove shopping cart
+      operationId: watches_deleteCart
+      parameters:
+        - name: cartId
+          in: path
+          required: true
+          description: Cart ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cart deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+
+  /cart/{cartId}/items/{sku}:
+    put:
+      tags: [Cart]
+      summary: Update cart item
+      description: Update quantity of an item in cart (set to 0 to remove)
+      operationId: watches_updateCartItem
+      parameters:
+        - name: cartId
+          in: path
+          required: true
+          description: Cart ID
+          schema:
+            type: string
+        - name: sku
+          in: path
+          required: true
+          description: Product SKU
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: integer
+                  minimum: 0
+              required: [quantity]
+      responses:
+        '200':
+          description: Cart updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+
+  /cart/{cartId}/create-mandate:
+    post:
+      tags: [Cart]
+      summary: Create payment mandate
+      description: Generate EIP-712 typed data for MetaMask payment signing
+      operationId: watches_createMandate
+      parameters:
+        - name: cartId
+          in: path
+          required: true
+          description: Cart ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                walletAddress:
+                  type: string
+                  description: User's wallet address
+                network:
+                  type: string
+                  description: Network ID (e.g., "sepolia", "bnb-mainnet")
+              required: [walletAddress, network]
+      responses:
+        '200':
+          description: Payment mandate created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '404':
+          description: Cart not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /cart/{cartId}/verify-payment:
+    post:
+      tags: [Cart]
+      summary: Verify payment
+      description: Verify MetaMask signature and create order
+      operationId: watches_verifyPayment
+      parameters:
+        - name: cartId
+          in: path
+          required: true
+          description: Cart ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                signature:
+                  type: string
+                  description: MetaMask signature
+                mandateHash:
+                  type: string
+                  description: Mandate hash from create-mandate
+              required: [signature, mandateHash]
+      responses:
+        '200':
+          description: Payment verified and order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '404':
+          description: Cart not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /pricing/quote:
+    post:
+      tags: [Pricing]
+      summary: Get price quote
+      description: Calculate pricing breakdown including tax, shipping, and discounts
+      operationId: watches_getPriceQuote
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      sku:
+                        type: string
+                      quantity:
+                        type: integer
+                        minimum: 1
+                couponCode:
+                  type: string
+                shippingDestination:
+                  type: object
+                  properties:
+                    country:
+                      type: string
+                      minLength: 2
+                      maxLength: 2
+                    postalCode:
+                      type: string
+              required: [items]
+      responses:
+        '200':
+          description: Price quote
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    $ref: '#/components/schemas/PricingBreakdown'
+
+  /inventory/check:
+    post:
+      tags: [Inventory]
+      summary: Check inventory for multiple SKUs
+      description: Bulk check stock availability
+      operationId: watches_checkInventory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                skus:
+                  type: array
+                  items:
+                    type: string
+              required: [skus]
+      responses:
+        '200':
+          description: Inventory status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InventoryStatus'
+
+  /inventory/{sku}:
+    get:
+      tags: [Inventory]
+      summary: Check inventory for single SKU
+      description: Check stock availability for a specific product
+      operationId: watches_checkInventorySingle
+      parameters:
+        - name: sku
+          in: path
+          required: true
+          description: Product SKU
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Inventory status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    $ref: '#/components/schemas/InventoryStatus'
+
+  /shipping/rates:
+    post:
+      tags: [Shipping]
+      summary: Calculate shipping rates
+      description: Get available shipping options and costs
+      operationId: watches_getShippingRates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                destination:
+                  type: object
+                  properties:
+                    country:
+                      type: string
+                      minLength: 2
+                      maxLength: 2
+                    state:
+                      type: string
+                    postalCode:
+                      type: string
+                  required: [country]
+                weight:
+                  type: number
+                  description: Total weight in grams
+                value:
+                  type: number
+                  description: Order value for insurance
+              required: [destination, weight, value]
+      responses:
+        '200':
+          description: Shipping rates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ShippingRate'
+
+  /orders:
+    post:
+      tags: [Orders]
+      summary: Create order
+      description: Place a new order from a cart
+      operationId: watches_createOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cartId:
+                  type: string
+                customer:
+                  $ref: '#/components/schemas/CustomerInfo'
+                shipping:
+                  $ref: '#/components/schemas/ShippingInfo'
+                payment:
+                  type: object
+                  properties:
+                    method:
+                      type: string
+                    token:
+                      type: string
+                  required: [method]
+                couponCode:
+                  type: string
+              required: [cartId, customer, shipping, payment]
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    $ref: '#/components/schemas/Order'
+
+  /orders/{orderId}:
+    get:
+      tags: [Orders]
+      summary: Get order
+      description: Retrieve order details
+      operationId: watches_getOrder
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          description: Order ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    $ref: '#/components/schemas/Order'
+
+  /orders/{orderId}/status:
+    patch:
+      tags: [Orders]
+      summary: Update order status
+      description: Update the status of an order
+      operationId: watches_updateOrderStatus
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          description: Order ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [pending_payment, processing, shipped, delivered, cancelled]
+              required: [status]
+      responses:
+        '200':
+          description: Order updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    $ref: '#/components/schemas/Order'
+
+  /orders/{orderId}/returns:
+    post:
+      tags: [Orders]
+      summary: Create return request
+      description: Request a return for order items
+      operationId: watches_createReturn
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          description: Order ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      sku:
+                        type: string
+                      quantity:
+                        type: integer
+                      reason:
+                        type: string
+                    required: [sku, quantity, reason]
+                customerNotes:
+                  type: string
+              required: [items]
+      responses:
+        '201':
+          description: Return created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+
+  /brands:
+    get:
+      tags: [Supporting]
+      summary: List all brands
+      description: Get list of watch brands with product counts
+      operationId: watches_listBrands
+      responses:
+        '200':
+          description: Brands list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+
+  /categories:
+    get:
+      tags: [Supporting]
+      summary: List all categories
+      description: Get list of product categories
+      operationId: watches_listCategories
+      responses:
+        '200':
+          description: Categories list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+
+  /collections:
+    get:
+      tags: [Supporting]
+      summary: List all collections
+      description: Get featured collections
+      operationId: watches_listCollections
+      responses:
+        '200':
+          description: Collections list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+
+  /health:
+    get:
+      tags: [Supporting]
+      summary: Health check
+      description: API health status
+      operationId: watches_healthCheck
+      responses:
+        '200':
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        sku:
+          type: string
+        name:
+          type: string
+        slug:
+          type: string
+        brand:
+          type: string
+        price:
+          type: number
+        currency:
+          type: string
+        images:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        shortDescription:
+          type: string
+        stock:
+          type: integer
+        categories:
+          type: array
+          items:
+            type: string
+        specs:
+          type: object
+          properties:
+            caseSize:
+              type: string
+            caseMaterial:
+              type: string
+            strapMaterial:
+              type: string
+            movement:
+              type: string
+            waterResistance:
+              type: string
+            crystalType:
+              type: string
+            warranty:
+              type: string
+        rating:
+          type: number
+        reviewCount:
+          type: integer
+        tags:
+          type: array
+          items:
+            type: string
+        weight:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    PricingBreakdown:
+      type: object
+      properties:
+        subtotal:
+          type: number
+        tax:
+          type: number
+        shipping:
+          type: number
+        discount:
+          type: number
+        total:
+          type: number
+        shippingOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShippingRate'
+
+    ShippingRate:
+      type: object
+      properties:
+        carrier:
+          type: string
+        service:
+          type: string
+        cost:
+          type: number
+        estimatedDays:
+          type: string
+
+    InventoryStatus:
+      type: object
+      properties:
+        sku:
+          type: string
+        available:
+          type: boolean
+        quantity:
+          type: integer
+        leadTime:
+          type: string
+
+    CustomerInfo:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phone:
+          type: string
+      required: [email, firstName, lastName]
+
+    ShippingInfo:
+      type: object
+      properties:
+        address:
+          type: object
+          properties:
+            line1:
+              type: string
+            line2:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            postalCode:
+              type: string
+            country:
+              type: string
+          required: [line1, city, state, postalCode, country]
+        method:
+          type: string
+      required: [address, method]
+
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: string
+        cartId:
+          type: string
+        status:
+          type: string
+          enum: [pending_payment, processing, shipped, delivered, cancelled]
+        items:
+          type: array
+          items:
+            type: object
+        customer:
+          $ref: '#/components/schemas/CustomerInfo'
+        shipping:
+          $ref: '#/components/schemas/ShippingInfo'
+        pricing:
+          $ref: '#/components/schemas/PricingBreakdown'
+        payment:
+          type: object
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        totalPages:
+          type: integer
+
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: true
+        data:
+          type: object
+        meta:
+          type: object
+
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            details:
+              type: object

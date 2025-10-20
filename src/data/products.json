@@ -1,0 +1,532 @@
+[
+  {
+    "id": "watch-001",
+    "sku": "ROL-SUB-116610LN",
+    "name": "Submariner Date",
+    "slug": "rolex-submariner-date",
+    "brand": "Rolex",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e",
+      "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7"
+    ],
+    "description": "The Rolex Submariner Date is a legendary dive watch featuring a unidirectional rotatable bezel, Cerachrom insert, and Chromalight display. Water-resistant to 300 meters and powered by the Calibre 3235 movement, it's the ultimate tool watch for professionals and enthusiasts alike.",
+    "shortDescription": "Iconic dive watch with 300m water resistance and automatic movement.",
+    "stock": 5,
+    "categories": [
+      "Luxury",
+      "Dive",
+      "Automatic",
+      "Sports"
+    ],
+    "specs": {
+      "caseSize": "41mm",
+      "caseMaterial": "Oystersteel",
+      "strapMaterial": "Oystersteel Bracelet",
+      "movement": "Automatic (Cal. 3235)",
+      "waterResistance": "300m / 1000ft",
+      "crystalType": "Sapphire",
+      "warranty": "5 years"
+    },
+    "rating": 4.9,
+    "reviewCount": 247,
+    "tags": [
+      "bestseller",
+      "iconic",
+      "professional"
+    ],
+    "weight": 155,
+    "createdAt": "2024-01-15T08:00:00Z",
+    "updatedAt": "2025-01-05T10:30:00Z"
+  },
+  {
+    "id": "watch-002",
+    "sku": "OME-SEA-21030422001001",
+    "name": "Seamaster Diver 300M",
+    "slug": "omega-seamaster-diver-300m",
+    "brand": "Omega",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1594534475808-b18fc33b045e",
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49"
+    ],
+    "description": "The Omega Seamaster Diver 300M combines elegant design with exceptional diving capability. Featuring a ceramic dial with laser-engraved waves, helium escape valve, and Co-Axial Master Chronometer Calibre 8800 movement, it's METAS certified and water-resistant to 300 meters.",
+    "shortDescription": "Professional dive watch with Co-Axial movement and ceramic bezel.",
+    "stock": 12,
+    "categories": [
+      "Luxury",
+      "Dive",
+      "Automatic",
+      "Sports"
+    ],
+    "specs": {
+      "caseSize": "42mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Stainless Steel Bracelet",
+      "movement": "Co-Axial Master Chronometer 8800",
+      "waterResistance": "300m / 1000ft",
+      "crystalType": "Sapphire",
+      "warranty": "5 years"
+    },
+    "rating": 4.8,
+    "reviewCount": 189,
+    "tags": [
+      "bestseller",
+      "james-bond"
+    ],
+    "weight": 180,
+    "createdAt": "2024-02-20T09:15:00Z",
+    "updatedAt": "2025-01-08T14:20:00Z"
+  },
+  {
+    "id": "watch-003",
+    "sku": "TAG-CAR-CBK2110BA0715",
+    "name": "Carrera Calibre 16 Chronograph",
+    "slug": "tag-heuer-carrera-chronograph",
+    "brand": "TAG Heuer",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1622434641406-a158123450f9",
+      "https://images.unsplash.com/photo-1611881281281-2f6d87cc28f2"
+    ],
+    "description": "The TAG Heuer Carrera Calibre 16 is a racing-inspired chronograph with a rich heritage. Its sleek design features a tachymeter scale, date display, and the reliable Calibre 16 automatic movement. Perfect for those who appreciate motorsport elegance.",
+    "shortDescription": "Racing chronograph with automatic movement and tachymeter.",
+    "stock": 8,
+    "categories": [
+      "Luxury",
+      "Chronograph",
+      "Automatic",
+      "Sports"
+    ],
+    "specs": {
+      "caseSize": "43mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Steel Bracelet",
+      "movement": "Automatic Chronograph (Cal. 16)",
+      "waterResistance": "100m / 330ft",
+      "crystalType": "Sapphire",
+      "warranty": "2 years"
+    },
+    "rating": 4.6,
+    "reviewCount": 134,
+    "tags": [
+      "motorsport",
+      "chronograph"
+    ],
+    "weight": 165,
+    "createdAt": "2024-03-10T11:00:00Z",
+    "updatedAt": "2025-01-02T16:45:00Z"
+  },
+  {
+    "id": "watch-004",
+    "sku": "SEI-PRO-SPB143J1",
+    "name": "Prospex Automatic Diver",
+    "slug": "seiko-prospex-diver",
+    "brand": "Seiko",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1619016508012-1984558e6b9b",
+      "https://images.unsplash.com/photo-1606390658538-c7c6bb5b2217"
+    ],
+    "description": "The Seiko Prospex Automatic Diver offers exceptional value with professional diving capabilities. Featuring the reliable 6R35 movement, LumiBrite hands, and a unidirectional rotating bezel, it's water-resistant to 200 meters. A modern tribute to Seiko's 1965 dive watch.",
+    "shortDescription": "Affordable automatic dive watch with 200m water resistance.",
+    "stock": 25,
+    "categories": [
+      "Affordable",
+      "Dive",
+      "Automatic",
+      "Sports"
+    ],
+    "specs": {
+      "caseSize": "40.5mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Silicone Strap",
+      "movement": "Automatic (Cal. 6R35)",
+      "waterResistance": "200m / 660ft",
+      "crystalType": "Sapphire",
+      "warranty": "3 years"
+    },
+    "rating": 4.7,
+    "reviewCount": 312,
+    "tags": [
+      "value",
+      "bestseller",
+      "new"
+    ],
+    "weight": 140,
+    "createdAt": "2024-04-05T13:30:00Z",
+    "updatedAt": "2025-01-09T09:15:00Z"
+  },
+  {
+    "id": "watch-005",
+    "sku": "CAR-SAN-WSSA0029",
+    "name": "Santos de Cartier Large",
+    "slug": "cartier-santos-large",
+    "brand": "Cartier",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1563298723-dcfebaa392e3",
+      "https://images.unsplash.com/photo-1509941943102-10c232535736"
+    ],
+    "description": "The Santos de Cartier represents aviation heritage and timeless elegance. Its iconic square case, exposed screws, and QuickSwitch interchangeable strap system make it instantly recognizable. Powered by the Calibre 1847 MC automatic movement.",
+    "shortDescription": "Iconic square luxury watch with aviation heritage and elegant design.",
+    "stock": 7,
+    "categories": [
+      "Luxury",
+      "Dress",
+      "Automatic",
+      "Icon"
+    ],
+    "specs": {
+      "caseSize": "39.8mm x 47.5mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Steel Bracelet / Leather",
+      "movement": "Automatic (Cal. 1847 MC)",
+      "waterResistance": "100m / 330ft",
+      "crystalType": "Sapphire",
+      "warranty": "8 years"
+    },
+    "rating": 4.8,
+    "reviewCount": 98,
+    "tags": [
+      "iconic",
+      "elegant",
+      "aviation"
+    ],
+    "weight": 145,
+    "createdAt": "2024-02-28T10:20:00Z",
+    "updatedAt": "2025-01-04T11:30:00Z"
+  },
+  {
+    "id": "watch-006",
+    "sku": "PAT-CAL-5196G001",
+    "name": "Calatrava",
+    "slug": "patek-philippe-calatrava",
+    "brand": "Patek Philippe",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1547996160-81dfa63595aa",
+      "https://images.unsplash.com/photo-1526045431048-f857369baa09"
+    ],
+    "description": "The Patek Philippe Calatrava is the epitome of dress watch perfection. Its minimalist design, slim profile, and hand-wound mechanical movement represent haute horlogerie at its finest. A timeless piece that transcends fashion.",
+    "shortDescription": "Ultimate dress watch with hand-wound movement and minimalist elegance.",
+    "stock": 2,
+    "categories": [
+      "Ultra-Luxury",
+      "Dress",
+      "Manual",
+      "Icon"
+    ],
+    "specs": {
+      "caseSize": "37mm",
+      "caseMaterial": "18k White Gold",
+      "strapMaterial": "Alligator Leather",
+      "movement": "Manual (Cal. 215 PS)",
+      "waterResistance": "30m / 100ft",
+      "crystalType": "Sapphire",
+      "warranty": "2 years"
+    },
+    "rating": 5.0,
+    "reviewCount": 42,
+    "tags": [
+      "grail",
+      "investment",
+      "heritage"
+    ],
+    "weight": 65,
+    "createdAt": "2024-01-10T08:45:00Z",
+    "updatedAt": "2025-01-06T15:10:00Z"
+  },
+  {
+    "id": "watch-007",
+    "sku": "AUD-ROY-15400ST",
+    "name": "Royal Oak Automatic",
+    "slug": "audemars-piguet-royal-oak",
+    "brand": "Audemars Piguet",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e",
+      "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7"
+    ],
+    "description": "The Audemars Piguet Royal Oak revolutionized luxury sports watches. Its octagonal bezel with exposed screws, integrated bracelet, and \"Tapisserie\" dial are instantly recognizable. Powered by the ultra-thin automatic Calibre 3120.",
+    "shortDescription": "Iconic luxury sports watch with octagonal bezel and integrated bracelet.",
+    "stock": 1,
+    "categories": [
+      "Ultra-Luxury",
+      "Sports",
+      "Automatic",
+      "Icon"
+    ],
+    "specs": {
+      "caseSize": "41mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Integrated Steel Bracelet",
+      "movement": "Automatic (Cal. 3120)",
+      "waterResistance": "50m / 165ft",
+      "crystalType": "Sapphire",
+      "warranty": "2 years"
+    },
+    "rating": 4.9,
+    "reviewCount": 67,
+    "tags": [
+      "grail",
+      "iconic",
+      "investment"
+    ],
+    "weight": 185,
+    "createdAt": "2024-01-20T09:00:00Z",
+    "updatedAt": "2025-01-07T12:20:00Z"
+  },
+  {
+    "id": "watch-008",
+    "sku": "IWC-PIL-IW327010",
+    "name": "Big Pilot's Watch 43",
+    "slug": "iwc-big-pilots-watch",
+    "brand": "IWC",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1524592094714-0f0654e20314",
+      "https://images.unsplash.com/photo-1595436849763-86a6ea9c2c11"
+    ],
+    "description": "The IWC Big Pilot's Watch 43 combines aviation heritage with modern refinement. Its large Arabic numerals, conical crown, and soft-iron inner case for magnetic field protection make it a true pilot's instrument. Features the reliable Calibre 82100 movement.",
+    "shortDescription": "Aviation-inspired pilot watch with large legible dial and automatic movement.",
+    "stock": 9,
+    "categories": [
+      "Luxury",
+      "Pilot",
+      "Automatic",
+      "Tool"
+    ],
+    "specs": {
+      "caseSize": "43mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Calfskin Leather",
+      "movement": "Automatic (Cal. 82100)",
+      "waterResistance": "100m / 330ft",
+      "crystalType": "Sapphire",
+      "warranty": "8 years"
+    },
+    "rating": 4.7,
+    "reviewCount": 121,
+    "tags": [
+      "aviation",
+      "tool-watch"
+    ],
+    "weight": 120,
+    "createdAt": "2024-03-15T14:00:00Z",
+    "updatedAt": "2025-01-03T10:45:00Z"
+  },
+  {
+    "id": "watch-009",
+    "sku": "BRE-NAV-A23322",
+    "name": "Navitimer Chronograph 41",
+    "slug": "breitling-navitimer",
+    "brand": "Breitling",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e",
+      "https://images.unsplash.com/photo-1533139143976-84c4e11e7993"
+    ],
+    "description": "The Breitling Navitimer is the ultimate pilot's chronograph with its iconic circular slide rule bezel for aviation calculations. Featuring the COSC-certified Calibre 23 movement and classic panda dial, it's been a favorite of aviators since 1952.",
+    "shortDescription": "Legendary pilot chronograph with slide rule bezel and COSC certification.",
+    "stock": 6,
+    "categories": [
+      "Luxury",
+      "Pilot",
+      "Chronograph",
+      "Icon"
+    ],
+    "specs": {
+      "caseSize": "41mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Steel Bracelet",
+      "movement": "Automatic Chronograph (Cal. 23)",
+      "waterResistance": "30m / 100ft",
+      "crystalType": "Sapphire",
+      "warranty": "5 years"
+    },
+    "rating": 4.8,
+    "reviewCount": 156,
+    "tags": [
+      "iconic",
+      "aviation",
+      "chronograph"
+    ],
+    "weight": 170,
+    "createdAt": "2024-02-12T11:30:00Z",
+    "updatedAt": "2025-01-05T13:50:00Z"
+  },
+  {
+    "id": "watch-010",
+    "sku": "ROL-DAT-126234",
+    "name": "Datejust 36",
+    "slug": "rolex-datejust-36",
+    "brand": "Rolex",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e",
+      "https://images.unsplash.com/photo-1622434641406-a158123450f9"
+    ],
+    "description": "The Rolex Datejust 36 is a classic dress watch that has remained largely unchanged since 1945. With its fluted bezel, Jubilee bracelet, and Cyclops date display, it's the quintessential everyday luxury watch. Powered by the Calibre 3235 movement.",
+    "shortDescription": "Classic dress watch with fluted bezel and Jubilee bracelet.",
+    "stock": 10,
+    "categories": [
+      "Luxury",
+      "Dress",
+      "Automatic",
+      "Classic"
+    ],
+    "specs": {
+      "caseSize": "36mm",
+      "caseMaterial": "Oystersteel & White Gold",
+      "strapMaterial": "Jubilee Bracelet",
+      "movement": "Automatic (Cal. 3235)",
+      "waterResistance": "100m / 330ft",
+      "crystalType": "Sapphire",
+      "warranty": "5 years"
+    },
+    "rating": 4.9,
+    "reviewCount": 203,
+    "tags": [
+      "classic",
+      "elegant",
+      "bestseller"
+    ],
+    "weight": 135,
+    "createdAt": "2024-01-25T10:15:00Z",
+    "updatedAt": "2025-01-08T14:30:00Z"
+  },
+  {
+    "id": "watch-011",
+    "sku": "OME-SPE-31130423001005",
+    "name": "Speedmaster Professional Moonwatch",
+    "slug": "omega-speedmaster-moonwatch",
+    "brand": "Omega",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1547996160-81dfa63595aa",
+      "https://images.unsplash.com/photo-1594534475808-b18fc33b045e"
+    ],
+    "description": "The Omega Speedmaster Professional is the only watch certified by NASA for EVA and worn on the moon. This hand-wound chronograph features the legendary Calibre 1861 movement, Hesalite crystal, and tachymeter bezel. A true piece of history.",
+    "shortDescription": "The legendary moonwatch with hand-wound chronograph and space heritage.",
+    "stock": 15,
+    "categories": [
+      "Luxury",
+      "Chronograph",
+      "Manual",
+      "Icon"
+    ],
+    "specs": {
+      "caseSize": "42mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Steel Bracelet",
+      "movement": "Manual Chronograph (Cal. 1861)",
+      "waterResistance": "50m / 165ft",
+      "crystalType": "Hesalite",
+      "warranty": "5 years"
+    },
+    "rating": 4.9,
+    "reviewCount": 287,
+    "tags": [
+      "iconic",
+      "moonwatch",
+      "heritage",
+      "bestseller"
+    ],
+    "weight": 155,
+    "createdAt": "2024-01-18T09:30:00Z",
+    "updatedAt": "2025-01-09T11:20:00Z"
+  },
+  {
+    "id": "watch-012",
+    "sku": "TAG-AQU-WBD1110BA0928",
+    "name": "Aquaracer Professional 300",
+    "slug": "tag-heuer-aquaracer",
+    "brand": "TAG Heuer",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49",
+      "https://images.unsplash.com/photo-1611881281281-2f6d87cc28f2"
+    ],
+    "description": "The TAG Heuer Aquaracer Professional 300 is a robust dive watch with a sporty yet refined design. Featuring a unidirectional rotating bezel, luminescent markers, and the Calibre 5 automatic movement, it's ready for any aquatic adventure.",
+    "shortDescription": "Sporty dive watch with 300m water resistance and automatic movement.",
+    "stock": 18,
+    "categories": [
+      "Luxury",
+      "Dive",
+      "Automatic",
+      "Sports"
+    ],
+    "specs": {
+      "caseSize": "43mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Steel Bracelet",
+      "movement": "Automatic (Cal. 5)",
+      "waterResistance": "300m / 1000ft",
+      "crystalType": "Sapphire",
+      "warranty": "2 years"
+    },
+    "rating": 4.5,
+    "reviewCount": 167,
+    "tags": [
+      "value",
+      "dive"
+    ],
+    "weight": 175,
+    "createdAt": "2024-03-22T12:00:00Z",
+    "updatedAt": "2025-01-04T15:40:00Z"
+  },
+  {
+    "id": "watch-013",
+    "sku": "SEI-PRE-SRPB41J1",
+    "name": "Presage Cocktail Time",
+    "slug": "seiko-presage-cocktail",
+    "brand": "Seiko",
+    "price": 1,
+    "currency": "USD",
+    "images": [
+      "https://images.unsplash.com/photo-1606390658538-c7c6bb5b2217",
+      "https://images.unsplash.com/photo-1509941943102-10c232535736"
+    ],
+    "description": "The Seiko Presage Cocktail Time features a stunning sunburst blue dial inspired by Japanese cocktails. With its domed Hardlex crystal, power reserve indicator, and 4R35 automatic movement, it offers exceptional elegance at an accessible price.",
+    "shortDescription": "Elegant dress watch with sunburst dial and power reserve indicator.",
+    "stock": 30,
+    "categories": [
+      "Affordable",
+      "Dress",
+      "Automatic",
+      "Japanese"
+    ],
+    "specs": {
+      "caseSize": "40.5mm",
+      "caseMaterial": "Stainless Steel",
+      "strapMaterial": "Leather Strap",
+      "movement": "Automatic (Cal. 4R35)",
+      "waterResistance": "50m / 165ft",
+      "crystalType": "Hardlex",
+      "warranty": "3 years"
+    },
+    "rating": 4.6,
+    "reviewCount": 421,
+    "tags": [
+      "value",
+      "elegant",
+      "bestseller"
+    ],
+    "weight": 95,
+    "createdAt": "2024-04-01T13:45:00Z",
+    "updatedAt": "2025-01-09T10:05:00Z"
+  }
+]
