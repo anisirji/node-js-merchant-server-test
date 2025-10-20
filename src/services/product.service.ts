@@ -14,12 +14,28 @@ class ProductService {
     // Apply filters
     if (filters.search) {
       const searchLower = filters.search.toLowerCase();
-      filtered = filtered.filter(
-        (p) =>
-          p.name.toLowerCase().includes(searchLower) ||
-          p.brand.toLowerCase().includes(searchLower) ||
-          p.description.toLowerCase().includes(searchLower)
-      );
+      const variants = new Set<string>([searchLower]);
+
+      // Basic singularization to handle plural queries like "watches"
+      if (searchLower.match(/([sxz]|[cs]h)es$/)) {
+        variants.add(searchLower.replace(/es$/, ''));
+      } else if (searchLower.endsWith('ies')) {
+        variants.add(searchLower.replace(/ies$/, 'y'));
+      } else if (searchLower.endsWith('s') && !searchLower.endsWith('ss')) {
+        variants.add(searchLower.slice(0, -1));
+      }
+
+      filtered = filtered.filter((p) => {
+        const haystacks = [
+          p.name.toLowerCase(),
+          p.brand.toLowerCase(),
+          p.description.toLowerCase(),
+        ];
+
+        return haystacks.some((text) =>
+          Array.from(variants).some((needle) => text.includes(needle))
+        );
+      });
     }
 
     if (filters.brand && filters.brand.length > 0) {
