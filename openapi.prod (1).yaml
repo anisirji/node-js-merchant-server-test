@@ -14,7 +14,7 @@ info:
 servers:
   - url: https://node-js-merchant-server-test.vercel.app/api/v1
     description: Production server (Vercel)
-    
+
 tags:
   - name: Products
     description: Browse and search watch products
